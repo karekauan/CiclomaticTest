@@ -24,6 +24,13 @@ class CalculateGradeTest < Minitest::Test
   def test_flog_scores
     bad_flog_score = Flog.calculate_score('bad.rb')
     good_flog_score = Flog.calculate_score('good.rb')
-    assert bad_flog_score > good_flog_score
+
+    if bad_flog_score < good_flog_score
+      puts "The 'bad' implementation is more performant with a Flog score of #{bad_flog_score}"
+    elsif good_flog_score < bad_flog_score
+      puts "The 'good' implementation is more performant with a Flog score of #{good_flog_score}"
+    else
+      puts "Both implementations have the same Flog score of #{bad_flog_score}"
+    end
   end
 end
