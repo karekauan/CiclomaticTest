@@ -1,3 +1,5 @@
-Install ruby
-sudo gem install minitest flog
-ruby test.rb
+docker run -ti --rm -v ${PWD}:/app ruby:3-bookworm /bin/bash
+
+bundle install
+
+ruby -Ilib test/complexity_test.rb
